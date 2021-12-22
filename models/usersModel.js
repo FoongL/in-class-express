@@ -10,6 +10,15 @@ const initUsersModel=(sequelize, DataTypes)=> {
         },
         name: {
           type: DataTypes.STRING,
+        },
+        email: {
+          allowNull: false,
+          unique: true,
+          type: DataTypes.STRING,
+        },
+        password: {
+          allowNull: false,
+          type: DataTypes.STRING,
         }
       }
     );
