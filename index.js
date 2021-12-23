@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express()
 app.use(express.json());
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
 require(`dotenv`).config()
 const { PORT }  = process.env
 
@@ -29,6 +31,7 @@ const userController = new UserController('User', db.Users, db)
 const taskController = new TaskController('Task', db.Tasks, db)
 
 // route the routes
+app.get('/', (req,res)=>res.render('index'))
 app.use('/users', userRouter(userController, auth))
 app.use('/tasks', taskRouter(taskController, auth))
 

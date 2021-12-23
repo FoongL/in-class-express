@@ -32,6 +32,9 @@ class UserController extends BaseController {
             return res.status(500).json({ msg: 'You are an idiot' })
         }
         const user = await this.model.findOne({where: {email}})
+        if(!user){
+            res.status(404).json({err: 'user not found'})
+        }
         const compare = await bcrypt.compare(password, user.password)
 
         if (compare){

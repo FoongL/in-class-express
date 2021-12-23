@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Auth-example</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body style='padding-left:3vw; padding-top:3vh'>
+    <h1>In Class Auth Middleware Example!</h1>
+    <p id="signInStatus" style='padding-top:5vh'></p>
+    <form id="signUpForm" style='width:15%; padding-top:5vh'>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Password">
+        </div>
+        <input id='formSubmit' type="submit" class="btn btn-primary"></inp>
+      </form>
+<br/>
+<h3 style='padding-top:5vh'>Currently in my local storage as "Token":</h3>
+<p id='tokenOutput'></p>
+<button id='putButton' type="button" class="btn btn-info">Push me to run the PUT</button>
+<button id='clearToken' type="button" class="btn btn-danger">Push me to delete your Token</button>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/js-loading-overlay@1.2.0/dist/js-loading-overlay.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src='index.js'></script>
+
+</html>
