@@ -8,6 +8,7 @@ const tokenAuth = () => async (req, res, next) => {
 
         const verifyToken = jwt.verify(authToken, JWT_SALT)  
         console.log('Verified Token', verifyToken)
+        req.user = verifyToken.id
         next()
     } catch(err){
         return res.status(403).json({err})

@@ -13,8 +13,8 @@ const { PORT }  = process.env
  */
 
 // import routes
-const userRouter = require('./routers/userRouter')
-const taskRouter = require('./routers/taskRouter')
+const UserRouter = require('./routers/userRouter')
+const TaskRouter = require('./routers/taskRouter')
 
 //import controllers
 const UserController = require('./controllers/userController')
@@ -30,10 +30,11 @@ const auth = require('./middlewares/auth')()
 const userController = new UserController('User', db.Users, db)
 const taskController = new TaskController('Task', db.Tasks, db)
 
+
 // route the routes
 app.get('/', (req,res)=>res.render('index'))
-app.use('/users', userRouter(userController, auth))
-app.use('/tasks', taskRouter(taskController, auth))
+app.use('/users', new UserRouter(userController, auth).router())
+app.use('/tasks', new TaskRouter(taskController).router())
 
 
 app.listen(PORT, ()=> console.log(`App is listening on port ${PORT}`))

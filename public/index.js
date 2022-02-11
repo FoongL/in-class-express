@@ -1,7 +1,7 @@
 
 // --> SIGNUP AND GET TOKEN
 $('#signUpForm').submit(async (e) => {
-    JsLoadingOverlay.show()
+    // JsLoadingOverlay.show()
     e.preventDefault()
     const email = $('#email').val()
     const password = $('#password').val()
@@ -15,8 +15,9 @@ $('#signUpForm').submit(async (e) => {
         JsLoadingOverlay.hide()
     }
     catch (err) {
+        console.log(err)
         alert(`invalid email or username`)
-        JsLoadingOverlay.hide()
+        // JsLoadingOverlay.hide()
     }
 })
 
