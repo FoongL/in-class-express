@@ -14,6 +14,7 @@ class BaseController {
         // dummy functions
         try{
         const { data } = req.body
+        console.log(data)
         const output = await this.model.create({...data})
         return res.status(200).json({success: `This is my POST function in my ${this.name} controller`, output})
         } catch(err){

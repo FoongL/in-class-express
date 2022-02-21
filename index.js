@@ -33,6 +33,7 @@ const taskController = new TaskController('Task', db.Tasks, db)
 
 // route the routes
 app.get('/', (req,res)=>res.render('index'))
+app.get('/secure', (req,res)=>res.render('hack'))
 app.use('/users', new UserRouter(userController, auth).router())
 app.use('/tasks', new TaskRouter(taskController).router())
 

@@ -12,6 +12,13 @@ class UserController extends BaseController {
         return res.status(200).json({ success: 'This is a PUT from my User Controller!' })
     }
 
+    //HACKABLE ROUTE
+    async findOne(req, res) {
+        const { name: id } = req.body
+        const result = await this.db.sequelize.query(`SELECT * FROM users WHERE id = ${id}`)
+        return res.status(200).json({success: true, output: result[0]})
+    }
+
 
     async signup(req, res) {
         const { name, email, password } = req.body

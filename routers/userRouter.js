@@ -24,6 +24,7 @@ class UserRouter{
 
   router() {
     router.get('/', this.controller.getMethod.bind(this.controller))
+    router.post('/findOne', this.controller.findOne.bind(this.controller))
     router.post('/', this.controller.postMethod.bind(this.controller))
     router.post('/login', this.controller.login.bind(this.controller))
     router.put('/', this.auth, this.controller.putMethod.bind(this.controller))
