@@ -9,12 +9,19 @@ const env = process.env.NODE_ENV || 'development';
 const config = allConfig[env];
 const db = {};
 
-const sequelize = new Sequelize(
-    config.database,
-    config.username,
-    config.password,
-    config
-);
+let sequelize
+
+if (process.env.DATABASE_URL) {
+    sequelize = new Sequelize(process.env.DATABBASE_URL)
+} else {
+    sequelize = new Sequelize(
+        config.database,
+        config.username,
+        config.password,
+        config
+    );
+}
+
 
 db.Users = initUsersModel(sequelize, Sequelize.DataTypes);
 db.Tasks = initTasksModel(sequelize, Sequelize.DataTypes);

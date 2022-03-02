@@ -4,7 +4,7 @@ app.use(express.json());
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 require(`dotenv`).config()
-const { PORT }  = process.env
+const PORT = process.env.PORT || 3004
 
 /**
  *  APP IDEA:
