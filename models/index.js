@@ -12,7 +12,15 @@ const db = {};
 let sequelize
 
 if (process.env.DATABASE_URL) {
-    sequelize = new Sequelize(process.env.DATABBASE_URL)
+    sequelize = new Sequelize(process.env.DATABBASE_URL, {
+        dialectOptions: {
+            ssl: {
+                require: true,
+                rejectUnauthorized: false
+            }
+        },
+        dialect: process.env.DB_DIALECT
+    })
 } else {
     sequelize = new Sequelize(
         config.database,
