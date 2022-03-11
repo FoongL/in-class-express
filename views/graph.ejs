@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Secure-Website</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body style='padding-left:3vw; padding-top:3vh'>
+    <h1>Super Duper Secure Website!</h1>
+
+<h2>GraphQL Query Sample</h2>
+<form id="sql" style='width:15%; padding-top:5vh'>
+    <div class="form-group">
+      <label for="exampleInputEmail1">let me find info for you!</label>
+      <input type="name" class="form-control" id="sqlname" aria-describedby="nameGetter" placeholder="Tell the ID you're looking for">
+      <small id="nameGetter" class="form-text text-muted">We just want to make a query.</small>
+    </div>
+    <input id='formSubmit' type="submit" class="btn btn-primary"></inp>
+  </form>
+<br/>
+<h3 style='padding-top:5vh'>data output</h3>
+<p id='sqlOutput'></p>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/js-loading-overlay@1.2.0/dist/js-loading-overlay.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src='graph.js'></script>
+
+</html>

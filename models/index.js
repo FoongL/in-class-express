@@ -5,7 +5,7 @@ const initUsersModel = require('./usersModel')
 const initTasksModel = require('./tasksModel')
 
 const { Sequelize } = sequelizePackage;
-const env = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV || 'production';
 const config = allConfig[env];
 const db = {};
 
@@ -29,7 +29,6 @@ if (process.env.DATABASE_URL) {
         config
     );
 }
-
 
 db.Users = initUsersModel(sequelize, Sequelize.DataTypes);
 db.Tasks = initTasksModel(sequelize, Sequelize.DataTypes);
