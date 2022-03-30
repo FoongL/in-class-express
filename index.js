@@ -7,6 +7,9 @@ app.use(express.static('public'));
 require(`dotenv`).config()
 const PORT = process.env.PORT || 3004
 
+
+console.log('I am making a random change')
+
 /**
  *  APP IDEA:
  * 1. Going to have users
@@ -29,7 +32,7 @@ const auth = require('./middlewares/auth')()
 
 // initialize controllers
 const userController = new UserController('User', db.Users, db)
-const taskController = new TaskController('Task', db.Tasks, db)
+const taskController = new TaskController({db:db, name: 'Task', model: db.Tasks})
 
 // import graphql schema
 const schema = require ('./graphql/schema.js')
